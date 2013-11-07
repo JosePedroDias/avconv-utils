@@ -23,11 +23,16 @@ Read how to do it [here](INSTALL.md).
 
 # example
 
-This is the example features in [samples/doMosaicMagic.js](samples/doMosaicMagic.js)
+This example is available in [samples/doMosaicMagic.js](samples/doMosaicMagic.js)
 
-source video:
 
-<iframe src="http://videos.sapo.pt/playhtml?file=http://rd3.videos.sapo.pt/jTE4TOJANeatDmQi341m/mov/1" frameborder="0" scrolling="no" width="400" height="350"></iframe>
+
+Input video:
+
+[ ![source video](http://cache03.stormap.sapo.pt/vidstore11/thumbnais/1c/f5/1e/7918426_dwspW.jpg) ](http://videos.sapo.pt/jTE4TOJANeatDmQi341m)
+
+
+Source code:
 
 ```javascript
 var au = require('avconv-utils');
@@ -46,7 +51,7 @@ au.doMosaicMagic(
 );
 ```
 
-result is:
+Callback result is:
 
 ```javascript
 {
@@ -61,7 +66,7 @@ result is:
 }
 ```
 
-and:
+and the following mosaic image:
 
 ![resulting mosaic](samples/mosaics/jTE4TOJANeatDmQi341m.jpg)
 
