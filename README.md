@@ -3,6 +3,11 @@
 Can be used to fetch frames from a video and create
 mosaics out of them for better storage and distribution.
 
+Possible usage scenarios:
+
+* show preview in video slider
+* auxiliary imagery for non linear editing of videos
+
 
 
 # requirements
@@ -18,5 +23,6 @@ Read how to do it [here](INSTALL.md).
 
 # API
 
-Check [API](API.md)
-Usage examples in samples directory.
+Check [API](api.md).
+
+Usage examples in bin/run command line utility and tests directory.
