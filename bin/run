@@ -30,7 +30,9 @@ var videoFileExt = videoFile.split('.')[1];
 var hash = videoFile.split('.')[0];
 var videoPath = videoParts.join('/');
 
-if (!mosaic) { mosaic = videoFile0; }
+if (!mosaic) {
+  mosaic = videoFile0 + '.jpg';
+}
 
 
 
@@ -47,51 +49,32 @@ console.log([
 
 // run utilities
 
-au.getMetadata(video, function(err, md) {
-  if (err) {
-    console.error('problem in getMetadata: ' + err);
-    process.exit(2);
-  }
-
-  //console.log('step 0 res:\n', md);
-
-  au.extractFrames({
-    inFile:          video,
-    videoDimensions: md.dimensions,
-    fps:             fps,
-    scale:           scale
-  }, function(err, info) {
+au.doMosaicMagic(
+  {
+    video:    video,
+    scale:    scale,
+    fps:      fps,
+    strategy: strategy,
+    mosaic:   mosaic
+  },
+  function(err, res) {
     if (err) {
-      console.error('problem in extractFrames: ' + err);
+      console.error(err);
       process.exit(2);
     }
 
-    //console.log('step 1 res:\n', info);
+    //console.log(res);
 
-    au.createImageMosaic({
-      files:           info.files,
-      frameDimensions: info.frameDimensions,
-      strategy:        strategy,
-      outFile:         mosaic + '.jpg',
-      deleteFiles:     true
-    }, function(err, info2) {
-      if (err) {
-        console.error('problem in createImageMosaic: ' + err);
-        process.exit(3);
-      }
-
-      //console.log('step 2 res:\n', info2);
-
-      console.log([
-        'video duration: ' + md.durationSecs, '\n',
-        'video dims:     ' + md.dimensions.join(' x '), '\n',
-        'frame dims:     ' + info2.frameDimensions.join(' x '), '\n',
-        '# frames:       ' + info2.n, '\n',
-        'grid dims:      ' + info2.grid.join(' x '), '\n',
-        'mosaic dims:    ' + info2.mosaicDimensions.join(' x '), '\n',
-        'mosaic file:    ' + info2.outFile, '\n',
-        '\n------------------\n'
-      ].join(''));
-    });
-  });
-});
+    console.log([
+      'output:\n',
+      '  video duration: ' + res.videoDuration, '\n',
+      '  video dims:     ' + res.videoDimensions.join(' x '), '\n',
+      '  frame dims:     ' + res.frameDimensions.join(' x '), '\n',
+      '  # frames:       ' + res.n, '\n',
+      '  grid dims:      ' + res.grid.join(' x '), '\n',
+      '  mosaic dims:    ' + res.mosaicDimensions.join(' x '), '\n',
+      '  mosaic file:    ' + res.outFile, '\n',
+      '\n------------------\n'
+    ].join(''));
+  }
+);

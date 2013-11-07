@@ -1,3 +1,3 @@
 #!/bin/bash
 cd ..
-bin/run test-videos/SfKjU69qt1e2B6R10gOz.mp4 0.5 2 square tests/2c
+bin/run test-videos/SfKjU69qt1e2B6R10gOz.mp4 0.5 2 square tests/2c.jpg

@@ -42,7 +42,29 @@
 `Function` cb
 ) *function*
 
+creates image mosaic from the given frames
+uses the given grid to layout frames or generates grid based on strategy
 
+
+
+
+
+
+
+---
+
+
+**doMosaicMagic**(
+`Object` o,
+`String` o.video,
+`String` o.mosaic,
+[`Number` o.fps],
+[`Number` o.scale],
+[`String` o.strategy],
+`Function` cb
+) *function*
+
+high level function which uses the other ones to perform whole workflow
 
 
 
