@@ -12,13 +12,13 @@ mosaics out of them for better storage and distribution.
     sudo apt-get install graphicsmagick
 
 * Requires avconv to be installed with x264 support (if reading h.264 videos)
-Read how to do it [here](INSTALL.md)
+Read how to do it [here](INSTALL.md).
 
 
 
 # API
 
-Check [API.md]
+Check [API](API.md)
 Usage examples in samples directory.
 
 
