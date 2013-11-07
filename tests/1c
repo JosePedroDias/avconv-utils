@@ -1,0 +1,3 @@
+#!/bin/bash
+cd ..
+bin/run test-videos/jTE4TOJANeatDmQi341m.mp4 0.5 2 tests/1c

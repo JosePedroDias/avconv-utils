@@ -1,0 +1,39 @@
+{
+  "name": "avconv-utils",
+  "version": "0.0.1",
+  "description": "utility functions to perform operations on videos using avconv",
+  "main": "lib/avconv-utils.js",
+  "directories": {
+  },
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JosePedroDias/avconv-utils.git"
+  },
+  "keywords": [
+    "extract images",
+    "create mosaics",
+    "video utilities",
+    "avconv"
+  ],
+  "author": {
+    "name" : "José Pedro Dias",
+    "email" : "jose.pedro.dias@gmail.com",
+    "url" : "http://josepedrodias.com/"
+  },
+  "engines": {
+    "node": ">= 0.8.x"
+  },
+  "dependencies": {
+    "node-uuid": ">= 1.4.1",
+    "extend":    ">= 1.2.1",
+    "avconv":    ">= 0.2.6",
+    "gm":        ">= 1.13.3"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/JosePedroDias/avconv-utils/issues"
+  }
+}
