@@ -20,9 +20,3 @@ Read how to do it [here](INSTALL.md).
 
 Check [API](API.md)
 Usage examples in samples directory.
-
-
-
-# TODO
-
-* function to get metadata (duration, size, ...)

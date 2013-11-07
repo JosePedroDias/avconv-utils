@@ -12,13 +12,14 @@ args.shift(); // script source
 //console.log( args );
 
 if (args.length === 0) {
-  console.error('Syntax is:\n  samples/1 <hash> [scale] [fps] [mosaic]');
+  console.error('Syntax is:\n  bin/run <video> [scale] [fps] [strategy] [mosaic]');
   process.exit(1);
 }
-var video  =                              args[0];
-var scale  = args.length > 1 ? parseFloat(args[1]) : 0.25;
-var fps    = args.length > 2 ? parseFloat(args[2]) : 1;
-var mosaic = args.length > 3 ?            args[3]  : undefined;
+var video    =                              args[0];
+var scale    = args.length > 1 ? parseFloat(args[1]) : 0.25;
+var fps      = args.length > 2 ? parseFloat(args[2]) : 1;
+var strategy = args.length > 3 ?            args[3]  : 'horizontal';
+var mosaic   = args.length > 4 ?            args[4]  : undefined;
 
 
 
@@ -35,37 +36,62 @@ if (!mosaic) { mosaic = videoFile0; }
 
 console.log([
   'arguments:\n',
-  '  video:  ', video, '\n',
-  '  scale:  ', scale, '\n',
-  '  fps:    ', fps, '\n',
-  '  mosaic: ', mosaic, '\n',
+  '  video:    ', video,    '\n',
+  '  scale:    ', scale,    '\n',
+  '  fps:      ', fps,      '\n',
+  '  strategy: ', strategy, '\n',
+  '  mosaic:   ', mosaic,   '\n'
 ].join(''));
 
 
 
 // run utilities
 
-au.extractFrames({
-  scale:  scale,
-  fps:    fps,
-  inFile: videoPath + '/' + videoFile
-}, function(err, info) {
+au.getMetadata(video, function(err, md) {
   if (err) {
-    console.error('problem in extractFrames: ' + err);
+    console.error('problem in getMetadata: ' + err);
     process.exit(2);
   }
-  //console.log('step 1 res: ', info);
 
-  au.createImageMosaic({
-    files:      info.files,
-    dimensions: info.dimensions,
-    outFile:    mosaic + '.jpg'
-  }, function(err, info2) {
+  //console.log('step 0 res:\n', md);
+
+  au.extractFrames({
+    inFile:          video,
+    videoDimensions: md.dimensions,
+    fps:             fps,
+    scale:           scale
+  }, function(err, info) {
     if (err) {
-      console.error('problem in createImageMosaic: ' + err);
-      process.exit(3);
+      console.error('problem in extractFrames: ' + err);
+      process.exit(2);
     }
-    //console.log('step 2 res:', info2);
-    console.log('result: ' + mosaic + '.jpg\n\n------------------\n')
+
+    //console.log('step 1 res:\n', info);
+
+    au.createImageMosaic({
+      files:           info.files,
+      frameDimensions: info.frameDimensions,
+      strategy:        strategy,
+      outFile:         mosaic + '.jpg',
+      deleteFiles:     true
+    }, function(err, info2) {
+      if (err) {
+        console.error('problem in createImageMosaic: ' + err);
+        process.exit(3);
+      }
+
+      //console.log('step 2 res:\n', info2);
+
+      console.log([
+        'video duration: ' + md.durationSecs, '\n',
+        'video dims:     ' + md.dimensions.join(' x '), '\n',
+        'frame dims:     ' + info2.frameDimensions.join(' x '), '\n',
+        '# frames:       ' + info2.n, '\n',
+        'grid dims:      ' + info2.grid.join(' x '), '\n',
+        'mosaic dims:    ' + info2.mosaicDimensions.join(' x '), '\n',
+        'mosaic file:    ' + info2.outFile, '\n',
+        '\n------------------\n'
+      ].join(''));
+    });
   });
 });

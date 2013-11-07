@@ -6,8 +6,16 @@ rm *.jpg
 ./1b
 ./1c
 
+./1h
+./1v
+./1la
+
 ./2a
 ./2b
 ./2c
 
-shotwell 1a.jpg
+./2h
+./2v
+./2la
+
+#shotwell 1a.jpg

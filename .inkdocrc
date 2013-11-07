@@ -1,6 +1,6 @@
 {
     "sourceFiles": [
-        "avconv-utils.js"
+        "lib/avconv-utils.js"
     ],
     "markupFile":      "api.md",
     "template":        "markdown",
