@@ -1,6 +1,6 @@
 {
   "name": "avconv-utils",
-  "version": "0.0.2",
+  "version": "0.1.1",
   "description": "utility functions to perform operations on videos using avconv",
   "main": "lib/avconv-utils.js",
   "directories": {
@@ -29,8 +29,8 @@
     "avconv":    ">= 0.2.6",
     "async":     ">= 0.2.9",
     "extend":    ">= 1.2.1",
-    "gm":        ">= 1.13.3"
-    "node-uuid": ">= 1.4.1",
+    "gm":        ">= 1.13.3",
+    "node-uuid": ">= 1.4.1"
   },
   "license": "MIT",
   "readmeFilename": "README.md",
