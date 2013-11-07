@@ -21,16 +21,16 @@ Read how to do it [here](INSTALL.md).
 
 
 
-# example
+# examples
 
-This example is available in [samples/doMosaicMagic.js](samples/doMosaicMagic.js)
+The following examples are available in [samples](samples)
 
-
-
-Input video:
+And the video used it them is this one:
 
 [ ![source video](http://cache03.stormap.sapo.pt/vidstore11/thumbnais/1c/f5/1e/7918426_dwspW.jpg) ](http://videos.sapo.pt/jTE4TOJANeatDmQi341m)
 
+
+## do mosaic magic
 
 Source code:
 
@@ -69,6 +69,36 @@ Callback result is:
 and the following mosaic image:
 
 ![resulting mosaic](samples/mosaics/jTE4TOJANeatDmQi341m.jpg)
+
+## get metadata
+
+Source code:
+
+```javascript
+var au = require('../lib/avconv-utils');
+au.getMetadata(
+  'jTE4TOJANeatDmQi341m.mp4',
+  function(err, res) {
+    if (err) { throw (err); }
+    console.log(res);
+  }
+);
+```
+
+
+Callback result is:
+
+```javascript
+{
+  duration:     '00:01:06.41',
+  durationSecs: 66.41,
+  vCodec:       'h264 (Constrained Baseline)',
+  vDetails:     'Video: h264 (Constrained Baseline), yuv420p, 580x326 [PAR 1:1 DAR 290:163], 694 kb/s, 24 fps, 24 tbr, 24 tbn, 48 tbc',
+  dimensions:   [580, 326],
+  aCodec:       'aac',
+  aDetails:     'Audio: aac, 48000 Hz, stereo, s16, 127 kb/s'
+}
+```
 
 
 # API
