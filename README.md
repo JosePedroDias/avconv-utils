@@ -38,7 +38,7 @@ Source code:
 var au = require('avconv-utils');
 au.doMosaicMagic(
   {
-    video:    '../test-videos/jTE4TOJANeatDmQi341m.mp4',
+    video:    'jTE4TOJANeatDmQi341m.mp4',
     scale:    0.25,
     fps:      1,
     strategy: 'square',
@@ -58,7 +58,7 @@ Callback result is:
   mosaicDimensions: [870, 984],
   frameDimensions:  [145, 82],
   strategy:         'square',
-  outFile:          'samples/mosaics/jTE4TOJANeatDmQi341m.jpg',
+  outFile:          'mosaics/jTE4TOJANeatDmQi341m.jpg',
   grid:             [6, 12],
   n:                68,
   videoDuration:    66.41,
