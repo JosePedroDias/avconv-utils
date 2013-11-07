@@ -6,12 +6,15 @@ var fs     = require('fs');
 var gm     = require('gm'); // sudo apt-get install graphicsmagick
 
 
+/**
+ * @module avconv-utils
+ */
 
 /**
  * @function extractFrames
  * @param {Object}    o
  * @param {String}    o.inFile                        video file to use
- * @param [String]   [o.guid]                         if ommited a GUID will be auto generated
+ * @param {String}   [o.guid]                         if ommited a GUID will be auto generated
  * @param {Number}   [o.fps]=1                        sample every n frames per second
  * @param {String}   [o.outPath]='/tmp'               directory where generated content will be put
  * @param {String}   [o.outImageMask]='GUID_%04.png'  generated images mask
@@ -147,7 +150,7 @@ var leastAreaMosaic = function(dims, n) {
  * @param {String}     o.outFile    image file to save mosaic in
  * @param {String[]}   o.files      each image file to mosaic
  * @param {Number[2]}  o.dimensions each extracted frame dimensions
- * @param {Number[2]] [o.grid]      if ommitted tries to find most 1x1 canvas
+ * @param {Number[2]} [o.grid]      if ommitted tries to find most 1x1 canvas
  * @param {Function}   cb           callback
  */
 // http://stackoverflow.com/questions/17369842/tile-four-images-together-using-node-js-and-graphicsmagick

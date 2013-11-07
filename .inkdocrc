@@ -1,0 +1,9 @@
+{
+    "sourceFiles": [
+        "avconv-utils.js"
+    ],
+    "markupFile":      "api.md",
+    "template":        "markdown",
+    "skipIdentifiers": true,
+    "skipJSON":        true
+}
