@@ -70,6 +70,11 @@ and the following mosaic image:
 
 ![resulting mosaic](samples/mosaics/jTE4TOJANeatDmQi341m.jpg)
 
+**Note**: The `square` strategy displayed above is the most appropriate for humans to inspect the result. 
+If you're scripting a preview slider based on CSS properties `horizontal` or `vertical` strategies
+are better suited for such purpose. They compose the mosaic in a single row/column respectively.
+
+
 ## get metadata
 
 Source code:
