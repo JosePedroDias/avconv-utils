@@ -1,0 +1,38 @@
+#!/usr/local/bin/node
+
+var au = require('../lib/avconv-utils');
+
+
+
+// parse arguments
+
+var args = process.argv.slice();
+args.shift(); // node
+args.shift(); // script source
+//console.log( args );
+
+if (args.length === 0) {
+  console.error('Syntax is:\n  getMetadata <media>');
+  process.exit(1);
+}
+var media = args[0];
+
+
+au._printObj('arguments', {media:media});
+
+
+
+// run utilities
+
+au.getMetadata(
+  media,
+  function(err, res) {
+    if (err) {
+      console.error(err);
+      process.exit(2);
+    }
+
+    au._printObj('output', res);
+    au._printHR();
+  }
+);

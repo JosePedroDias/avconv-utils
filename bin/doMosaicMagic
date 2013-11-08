@@ -12,11 +12,11 @@ args.shift(); // script source
 //console.log( args );
 
 if (args.length === 0) {
-  console.error('Syntax is:\n  bin/run <video> [scale] [fps] [strategy] [mosaic]');
+  console.error('Syntax is:\n  bin/doMosaicMagic <video> [scale]=1 [fps]=1 [strategy]=\'horizontal\' [mosaic]=<video.jpg>');
   process.exit(1);
 }
 var video    =                              args[0];
-var scale    = args.length > 1 ? parseFloat(args[1]) : 0.25;
+var scale    = args.length > 1 ? parseFloat(args[1]) : 1;
 var fps      = args.length > 2 ? parseFloat(args[2]) : 1;
 var strategy = args.length > 3 ?            args[3]  : 'horizontal';
 var mosaic   = args.length > 4 ?            args[4]  : undefined;
@@ -35,15 +35,13 @@ if (!mosaic) {
 }
 
 
-
-console.log([
-  'arguments:\n',
-  '  video:    ', video,    '\n',
-  '  scale:    ', scale,    '\n',
-  '  fps:      ', fps,      '\n',
-  '  strategy: ', strategy, '\n',
-  '  mosaic:   ', mosaic,   '\n'
-].join(''));
+au._printObj('arguments', {
+  video:    video,
+  scale:    scale,
+  fops:     fps,
+  strategy: strategy,
+  mosaic:   mosaic
+});
 
 
 
@@ -63,18 +61,7 @@ au.doMosaicMagic(
       process.exit(2);
     }
 
-    //console.log(res);
-
-    console.log([
-      'output:\n',
-      '  video duration: ' + res.videoDuration, '\n',
-      '  video dims:     ' + res.videoDimensions.join(' x '), '\n',
-      '  frame dims:     ' + res.frameDimensions.join(' x '), '\n',
-      '  # frames:       ' + res.n, '\n',
-      '  grid dims:      ' + res.grid.join(' x '), '\n',
-      '  mosaic dims:    ' + res.mosaicDimensions.join(' x '), '\n',
-      '  mosaic file:    ' + res.outFile, '\n',
-      '\n------------------\n'
-    ].join(''));
+    au._printObj('output', res);
+    au._printHR();
   }
 );

@@ -8,7 +8,6 @@ rm *.jpg
 
 ./1h
 ./1v
-./1la
 
 ./2a
 ./2b
@@ -16,6 +15,5 @@ rm *.jpg
 
 ./2h
 ./2v
-./2la
 
 #shotwell 1a.jpg

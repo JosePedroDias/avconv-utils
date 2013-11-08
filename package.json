@@ -1,6 +1,6 @@
 {
   "name": "avconv-utils",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "utility functions to perform operations on videos using avconv",
   "main": "lib/avconv-utils.js",
   "directories": {
@@ -23,7 +23,7 @@
     "url" : "http://josepedrodias.com/"
   },
   "engines": {
-    "node": ">= 0.8.x"
+    "node": ">= 0.10.x"
   },
   "dependencies": {
     "avconv":    ">= 0.2.6",

@@ -2,7 +2,7 @@
     "sourceFiles": [
         "lib/avconv-utils.js"
     ],
-    "markupFile":      "api.md",
+    "markupFile":      "API.md",
     "template":        "markdown",
     "skipIdentifiers": true,
     "skipJSON":        true

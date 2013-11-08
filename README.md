@@ -101,8 +101,14 @@ Callback result is:
 ```
 
 
-# API
+# usage
 
-Check [API](api.md).
+Check [API](API.md).
 
-Usage examples in bin/run command line utility and tests directory.
+Usage examples in [bin/\* command line utilities](bin) and [tests](tests) directory.
+
+
+
+# changelog
+
+Check [LOG](LOG.md).
