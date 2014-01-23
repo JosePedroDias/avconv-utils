@@ -1,3 +1,12 @@
+[![dependency status](https://david-dm.org/josepedrodias/avconv-utils.png)](https://david-dm.org/josepedrodias/avconv-utils)
+[![published version](https://badge.fury.io/js/avconv-utils.png)](http://badge.fury.io/js/avconv-utils)
+[![still maintained?](http://stillmaintained.com/JosePedroDias/avconv-utils.png)](http://stillmaintained.com/JosePedroDias/avconv-utils)
+
+[![NPM](https://nodei.co/npm/avconv-utils.png?downloads=true&compact=true)](https://nodei.co/npm/avconv-utils/)
+[![NPM](https://nodei.co/npm-dl/avconv-utils.png?months=2)](https://nodei.co/npm/avconv-utils/)
+
+
+
 # motivation
 
 Can be used to fetch frames from a video and create
