@@ -1,6 +1,6 @@
 {
   "name": "avconv-utils",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "utility functions to perform operations on videos using avconv",
   "main": "lib/avconv-utils.js",
   "directories": {
@@ -26,7 +26,7 @@
     "node": ">= 0.10.x"
   },
   "dependencies": {
-    "avconv":    ">= 0.2.6",
+    "avconv":    ">= 2.0.0",
     "async":     ">= 0.2.9",
     "extend":    ">= 1.2.1",
     "gm":        ">= 1.13.3",
