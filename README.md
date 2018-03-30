@@ -1,4 +1,4 @@
-💡 I suggest you migrate to the most recent
+💡 I suggest you migrate to the more recent
 [ffmpeg-utils2](https://github.com/JosePedroDias/ffmpeg-utils2)
 
 # motivation
